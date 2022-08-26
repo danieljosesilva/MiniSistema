@@ -1,0 +1,113 @@
+object fEdicaoItensVenda: TfEdicaoItensVenda
+  Left = 256
+  Height = 105
+  Top = 145
+  Width = 593
+  Caption = 'Lançamento de itens de Vendas'
+  ClientHeight = 105
+  ClientWidth = 593
+  OnClose = FormClose
+  Position = poDesktopCenter
+  LCLVersion = '2.2.0.4'
+  object lblProduto: TLabel
+    Left = 6
+    Height = 15
+    Top = 8
+    Width = 43
+    Caption = 'Produto'
+  end
+  object edtProduto: TDBEdit
+    Left = 6
+    Height = 23
+    Top = 24
+    Width = 49
+    DataField = 'CHAVE_PRODUTO'
+    DataSource = DataModule1.dsItensVendas
+    MaxLength = 0
+    TabOrder = 0
+    OnExit = edtProdutoExit
+  end
+  object lcbDescricaoProduto: TDBLookupComboBox
+    Left = 62
+    Height = 23
+    Top = 24
+    Width = 275
+    DataField = 'CHAVE_PRODUTO'
+    DataSource = DataModule1.dsItensVendas
+    DropDownCount = 30
+    KeyField = 'CHAVE'
+    ListField = 'DESCRICAO'
+    ListFieldIndex = 0
+    ListSource = DataModule1.dsProdutos
+    LookupCache = False
+    OnExit = lcbDescricaoProdutoExit
+    TabOrder = 1
+  end
+  object lblPrecoUnitario: TLabel
+    Left = 344
+    Height = 15
+    Top = 8
+    Width = 75
+    Caption = 'Preço Unitário'
+  end
+  object DBEdit1: TDBEdit
+    Left = 344
+    Height = 23
+    Top = 24
+    Width = 80
+    DataField = 'PRECO_UNITARIO'
+    DataSource = DataModule1.dsItensVendas
+    MaxLength = 0
+    TabOrder = 2
+  end
+  object edtQuantidade: TDBEdit
+    Left = 431
+    Height = 23
+    Top = 24
+    Width = 64
+    DataField = 'QUANTIDADE'
+    DataSource = DataModule1.dsItensVendas
+    MaxLength = 0
+    TabOrder = 3
+  end
+  object lblQuantidade: TLabel
+    Left = 431
+    Height = 15
+    Top = 8
+    Width = 62
+    Caption = 'Quantidade'
+  end
+  object lblValorTotal: TLabel
+    Left = 502
+    Height = 15
+    Top = 8
+    Width = 54
+    Caption = 'Valor Total'
+  end
+  object edtValorTotal: TDBEdit
+    Left = 502
+    Height = 23
+    Top = 24
+    Width = 84
+    DataField = 'VALOR_TOTAL'
+    DataSource = DataModule1.dsItensVendas
+    MaxLength = 0
+    TabOrder = 4
+  end
+  object btnSalvar: TSpeedButton
+    Left = 216
+    Height = 22
+    Top = 64
+    Width = 76
+    Caption = 'Salvar'
+    OnClick = btnSalvarClick
+  end
+  object btnCancelar: TSpeedButton
+    Left = 296
+    Height = 22
+    Top = 64
+    Width = 76
+    Caption = 'Cancelar'
+    OnClick = btnCancelarClick
+  end
+end

@@ -1,0 +1,173 @@
+object fEdicaoProdutos: TfEdicaoProdutos
+  Left = 421
+  Height = 310
+  Top = 165
+  Width = 426
+  Caption = 'Editar Produtos'
+  ClientHeight = 0
+  ClientWidth = 0
+  OnClose = FormClose
+  Position = poDesktopCenter
+  LCLVersion = '2.2.0.4'
+  object btnSalvar: TSpeedButton
+    Left = 157
+    Height = 36
+    Top = 264
+    Width = 54
+    Caption = 'Salvar'
+    OnClick = btnSalvarClick
+  end
+  object btnCancelar: TSpeedButton
+    Left = 220
+    Height = 36
+    Top = 264
+    Width = 54
+    Caption = 'Cancelar'
+    OnClick = btnCancelarClick
+  end
+  object lblCodBarras: TLabel
+    Left = 46
+    Height = 15
+    Top = 8
+    Width = 90
+    Caption = 'Código de Barras'
+  end
+  object edtCodBarras: TDBEdit
+    Left = 46
+    Height = 23
+    Top = 24
+    Width = 373
+    DataField = 'CODIGOBARRAS'
+    DataSource = DataModule1.dsProdutos
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object edtChave: TDBEdit
+    Left = 6
+    Height = 23
+    Top = 24
+    Width = 33
+    DataField = 'CHAVE'
+    DataSource = DataModule1.dsProdutos
+    ReadOnly = True
+    Font.Color = clActiveBorder
+    MaxLength = 0
+    ParentFont = False
+    TabOrder = 1
+  end
+  object lblChave: TLabel
+    Left = 6
+    Height = 15
+    Top = 8
+    Width = 33
+    Caption = 'Chave'
+  end
+  object lblDescricao: TLabel
+    Left = 6
+    Height = 15
+    Top = 56
+    Width = 51
+    Caption = 'Descrição'
+  end
+  object edtDescricao: TDBEdit
+    Left = 6
+    Height = 23
+    Top = 72
+    Width = 349
+    DataField = 'DESCRICAO'
+    DataSource = DataModule1.dsProdutos
+    MaxLength = 0
+    TabOrder = 2
+  end
+  object lblEstoque: TLabel
+    Left = 6
+    Height = 15
+    Top = 104
+    Width = 42
+    Caption = 'Estoque'
+  end
+  object edtEstoque: TDBEdit
+    Left = 6
+    Height = 23
+    Top = 120
+    Width = 66
+    DataField = 'ESTOQUE'
+    DataSource = DataModule1.dsProdutos
+    MaxLength = 0
+    TabOrder = 3
+  end
+  object lblPrecoCompra: TLabel
+    Left = 79
+    Height = 15
+    Top = 104
+    Width = 92
+    Caption = 'Preço de Compra'
+  end
+  object edtPrecoCompra: TDBEdit
+    Left = 79
+    Height = 23
+    Top = 120
+    Width = 94
+    DataField = 'PRECO_COMPRA'
+    DataSource = DataModule1.dsProdutos
+    MaxLength = 0
+    TabOrder = 4
+  end
+  object lblEstoque2: TLabel
+    Left = 180
+    Height = 15
+    Top = 104
+    Width = 81
+    Caption = 'Preço de Venda'
+  end
+  object edtPrecoVenda: TDBEdit
+    Left = 180
+    Height = 23
+    Top = 120
+    Width = 94
+    DataField = 'PRECO_VENDA'
+    DataSource = DataModule1.dsProdutos
+    MaxLength = 0
+    TabOrder = 5
+  end
+  object lblUnidade: TLabel
+    Left = 362
+    Height = 15
+    Top = 56
+    Width = 44
+    Caption = 'Unidade'
+  end
+  object cbUnidade: TDBComboBox
+    Left = 362
+    Height = 21
+    Top = 72
+    Width = 57
+    DataField = 'UNIDADE'
+    DataSource = DataModule1.dsProdutos
+    ItemHeight = 15
+    Items.Strings = (
+      'UN'
+      'KG'
+      'VOL'
+    )
+    MaxLength = 0
+    Style = csOwnerDrawFixed
+    TabOrder = 6
+  end
+  object Label1: TLabel
+    Left = 6
+    Height = 15
+    Top = 150
+    Width = 62
+    Caption = 'Observação'
+  end
+  object mObservacao: TDBMemo
+    Left = 6
+    Height = 90
+    Top = 168
+    Width = 413
+    DataField = 'OBSERVACAO'
+    DataSource = DataModule1.dsProdutos
+    TabOrder = 7
+  end
+end

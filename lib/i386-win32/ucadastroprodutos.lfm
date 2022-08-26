@@ -1,0 +1,136 @@
+object fCadastroProdutos: TfCadastroProdutos
+  Left = 430
+  Height = 441
+  Top = 174
+  Width = 818
+  Caption = 'Cadastro de Produtos'
+  ClientHeight = 441
+  ClientWidth = 818
+  LCLVersion = '2.2.0.4'
+  WindowState = wsMaximized
+  object Panel2: TPanel
+    Left = 0
+    Height = 66
+    Top = 0
+    Width = 818
+    Align = alTop
+    ClientHeight = 66
+    ClientWidth = 818
+    TabOrder = 0
+    object edtBuscar: TEdit
+      Left = 168
+      Height = 23
+      Top = 32
+      Width = 608
+      OnChange = edtBuscarChange
+      TabOrder = 0
+    end
+    object Label1: TLabel
+      Left = 168
+      Height = 15
+      Top = 17
+      Width = 38
+      Caption = 'Buscar:'
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 375
+    Top = 66
+    Width = 170
+    Align = alLeft
+    ClientHeight = 375
+    ClientWidth = 170
+    TabOrder = 1
+    object btnInserir: TSpeedButton
+      Left = 1
+      Height = 22
+      Top = 1
+      Width = 168
+      Align = alTop
+      Caption = 'Inserir'
+      OnClick = btnInserirClick
+    end
+    object btnEditar: TSpeedButton
+      Left = 1
+      Height = 22
+      Top = 24
+      Width = 168
+      Caption = 'Editar'
+      OnClick = btnEditarClick
+    end
+    object btnExcluir: TSpeedButton
+      Left = 1
+      Height = 22
+      Top = 48
+      Width = 168
+      Caption = 'Excluir'
+      OnClick = btnExcluirClick
+    end
+  end
+  object grdProdutos: TDBGrid
+    Left = 170
+    Height = 375
+    Top = 66
+    Width = 648
+    Align = alClient
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Chave'
+        FieldName = 'CHAVE'
+      end    
+      item
+        Title.Caption = 'Código de Barras'
+        Width = 125
+        FieldName = 'CODIGOBARRAS'
+      end    
+      item
+        Title.Caption = 'Descrição'
+        Width = 125
+        FieldName = 'DESCRICAO'
+      end    
+      item
+        Title.Caption = 'Unidade'
+        Width = 50
+        FieldName = 'UNIDADE'
+      end    
+      item
+        Title.Caption = 'Preço de Compra'
+        Width = 99
+        FieldName = 'PRECO_COMPRA'
+      end    
+      item
+        Title.Caption = 'Preço de Venda'
+        Width = 87
+        FieldName = 'PRECO_VENDA'
+      end    
+      item
+        Title.Caption = 'Estoque'
+        Width = 50
+        FieldName = 'ESTOQUE'
+      end>
+    DataSource = DataModule1.dsProdutos
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 2
+  end
+  object qryProdutosChave: TZQuery
+    Connection = DataModule1.ZConnection1
+    SQL.Strings = (
+      'select max(chave) + 1'
+      '  from produtos'
+    )
+    Params = <>
+    Left = 35
+    Top = 20
+    object qryProdutosChaveADD: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ADD'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+  end
+end

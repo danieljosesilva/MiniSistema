@@ -1,0 +1,249 @@
+object fRelatorioContasAReceber: TfRelatorioContasAReceber
+  Left = 256
+  Height = 527
+  Top = 145
+  Width = 1035
+  Caption = 'fRelatorioContasAReceber'
+  ClientHeight = 527
+  ClientWidth = 1035
+  LCLVersion = '2.2.0.4'
+  object RLReport1: TRLReport
+    Left = 0
+    Height = 1123
+    Top = 0
+    Width = 794
+    DataSource = fContasAReceber.dsContasAReceber
+    DefaultFilter = RLPDFFilter1
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    BeforePrint = RLReport1BeforePrint
+    object RLBand1: TRLBand
+      Left = 38
+      Height = 96
+      Top = 38
+      Width = 718
+      BandType = btTitle
+      object RLLabel1: TRLLabel
+        Left = 0
+        Height = 16
+        Top = 0
+        Width = 718
+        Align = faTop
+        Alignment = taCenter
+        Caption = 'Relat√≥rio de Contas a Receber'
+      end
+      object RLLabel4: TRLLabel
+        Left = 0
+        Height = 16
+        Top = 75
+        Width = 64
+        Caption = 'Cliente'
+      end
+      object RLLabel5: TRLLabel
+        Left = 136
+        Height = 16
+        Top = 75
+        Width = 122
+        Caption = 'Data do Vencimento'
+      end
+      object RLLabel6: TRLLabel
+        Left = 272
+        Height = 16
+        Top = 75
+        Width = 119
+        Caption = 'Data do Pagamento'
+      end
+      object RLLabel7: TRLLabel
+        Left = 424
+        Height = 16
+        Top = 75
+        Width = 34
+        Caption = 'Valor'
+      end
+      object RLLabel3: TRLLabel
+        Left = 504
+        Height = 16
+        Top = 75
+        Width = 42
+        Caption = 'Status'
+      end
+    end
+    object RLBand2: TRLBand
+      Left = 38
+      Height = 80
+      Top = 134
+      Width = 718
+      BeforePrint = RLBand2BeforePrint
+      object RLDBText1: TRLDBText
+        Left = 0
+        Height = 16
+        Top = 16
+        Width = 125
+        AutoSize = False
+        DataField = 'NOME'
+        DataSource = dsRelatorio
+      end
+      object RLDBText2: TRLDBText
+        Left = 136
+        Height = 16
+        Top = 16
+        Width = 130
+        DataField = 'DATA_VENCIMENTO'
+        DataSource = dsRelatorio
+      end
+      object RLDBText3: TRLDBText
+        Left = 272
+        Height = 16
+        Top = 16
+        Width = 130
+        DataField = 'DATA_PAGAMEMTO'
+        DataSource = dsRelatorio
+      end
+      object RLDBText4: TRLDBText
+        Left = 424
+        Height = 16
+        Top = 16
+        Width = 48
+        DataField = 'VALOR'
+        DataSource = dsRelatorio
+      end
+      object RLDBText5: TRLDBText
+        Left = 504
+        Height = 16
+        Top = 16
+        Width = 54
+        DataField = 'STATUS'
+        DataSource = dsRelatorio
+      end
+    end
+    object RLBand3: TRLBand
+      Left = 38
+      Height = 64
+      Top = 214
+      Width = 718
+      BandType = btSummary
+      BeforePrint = RLBand3BeforePrint
+      object RLLabel2: TRLLabel
+        Left = 528
+        Height = 16
+        Top = 16
+        Width = 139
+        Caption = 'Valor Total do Relat√≥rio'
+      end
+      object lblTotalRelatorio: TRLLabel
+        Left = 528
+        Height = 16
+        Top = 40
+        Width = 45
+        Caption = 'R$0.00'
+      end
+    end
+  end
+  object qryRelatorio: TZQuery
+    Connection = DataModule1.ZConnection1
+    SQL.Strings = (
+      'select *'
+      '  from conta_a_receber'
+    )
+    Params = <>
+    Left = 568
+    Top = 25
+    object qryRelatorioCHAVE: TLongintField
+      FieldKind = fkData
+      FieldName = 'CHAVE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryRelatorioCHAVE_VENDA: TLongintField
+      FieldKind = fkData
+      FieldName = 'CHAVE_VENDA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryRelatorioCHAVE_CLIENTE: TLongintField
+      FieldKind = fkData
+      FieldName = 'CHAVE_CLIENTE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryRelatorioVALOR: TFloatField
+      FieldKind = fkData
+      FieldName = 'VALOR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '##########.##'
+      EditFormat = '##########.##'
+      Precision = 2
+    end
+    object qryRelatorioDATA_VENCIMENTO: TDateField
+      FieldKind = fkData
+      FieldName = 'DATA_VENCIMENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '99/99/9999'
+      EditMask = '99/99/9999'
+    end
+    object qryRelatorioDATA_PAGAMEMTO: TDateField
+      FieldKind = fkData
+      FieldName = 'DATA_PAGAMEMTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '99/99/9999'
+      EditMask = '99/99/9999'
+    end
+    object qryRelatorioSTATUS: TStringField
+      FieldKind = fkData
+      FieldName = 'STATUS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object TStringField
+      FieldKind = fkLookup
+      FieldName = 'NOME'
+      Index = 7
+      KeyFields = 'CHAVE_CLIENTE'
+      LookupCache = False
+      LookupDataSet = DataModule1.qryCliente
+      LookupKeyFields = 'CHAVE'
+      LookupResultField = 'NOME'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 125
+    end
+  end
+  object dsRelatorio: TDataSource
+    DataSet = qryRelatorio
+    Left = 664
+    Top = 24
+  end
+  object RLPDFFilter1: TRLPDFFilter
+    DocumentInfo.Creator = 'FortesReport Community Edition v4.0.0.1 \251 Copyright © 1999-2021 Fortes Inform·tica'
+    DisplayName = 'Documento PDF'
+    Left = 40
+    Top = 56
+  end
+end

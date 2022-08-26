@@ -1,0 +1,467 @@
+object fLancamentoVendas: TfLancamentoVendas
+  Left = 414
+  Height = 393
+  Top = 157
+  Width = 842
+  Caption = 'Lançamento de Vendas'
+  ClientHeight = 393
+  ClientWidth = 842
+  OnClose = FormClose
+  LCLVersion = '2.2.0.4'
+  WindowState = wsMaximized
+  object Panel1: TPanel
+    Left = 0
+    Height = 64
+    Top = 0
+    Width = 842
+    Align = alTop
+    ClientHeight = 64
+    ClientWidth = 842
+    TabOrder = 0
+    object lblId: TLabel
+      Left = 6
+      Height = 15
+      Top = 8
+      Width = 13
+      Caption = 'Id.'
+    end
+    object edtId: TDBText
+      Left = 6
+      Height = 23
+      Top = 24
+      Width = 47
+      AutoSize = False
+      DataField = 'CHAVE'
+      DataSource = DataModule1.dsVendas
+    end
+    object lblNumeroVenda: TLabel
+      Left = 60
+      Height = 15
+      Top = 8
+      Width = 95
+      Caption = 'Número da venda'
+    end
+    object edtNumeroVenda: TDBEdit
+      Left = 60
+      Height = 23
+      Top = 24
+      Width = 100
+      DataField = 'NUMERO'
+      DataSource = DataModule1.dsVendas
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object edtData: TDBEdit
+      Left = 167
+      Height = 23
+      Top = 24
+      Width = 100
+      DataField = 'DATA'
+      DataSource = DataModule1.dsVendas
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object lblHorario: TLabel
+      Left = 274
+      Height = 15
+      Top = 8
+      Width = 40
+      Caption = 'Horário'
+    end
+    object lblCliente: TLabel
+      Left = 381
+      Height = 15
+      Top = 8
+      Width = 37
+      Caption = 'Cliente'
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 431
+      Height = 23
+      Top = 24
+      Width = 273
+      DataField = 'CLIENTE'
+      DataSource = DataModule1.dsVendas
+      KeyField = 'CHAVE'
+      ListField = 'NOME'
+      ListFieldIndex = 0
+      ListSource = DataModule1.dsCliente
+      LookupCache = False
+      TabOrder = 2
+    end
+    object lblValorTotal: TLabel
+      Left = 711
+      Height = 15
+      Top = 8
+      Width = 54
+      Caption = 'Valor Total'
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 64
+    Top = 329
+    Width = 842
+    Align = alBottom
+    ClientHeight = 64
+    ClientWidth = 842
+    TabOrder = 1
+    object btnSalvar: TSpeedButton
+      Left = 322
+      Height = 22
+      Top = 8
+      Width = 96
+      Caption = 'Salvar'
+      OnClick = btnSalvarClick
+    end
+    object btnCancelar: TSpeedButton
+      Left = 431
+      Height = 22
+      Top = 8
+      Width = 96
+      Caption = 'Cancelar e Sair'
+      OnClick = btnCancelarClick
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 265
+    Top = 64
+    Width = 842
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 4
+    object TabSheet1: TTabSheet
+      Caption = 'Itens de Venda'
+      ClientHeight = 237
+      ClientWidth = 834
+      object Panel3: TPanel
+        Left = 0
+        Height = 50
+        Top = 0
+        Width = 834
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 50
+        ClientWidth = 834
+        TabOrder = 0
+        object btnInserirItem: TSpeedButton
+          Left = 0
+          Height = 22
+          Top = 2
+          Width = 75
+          Caption = 'Inserir Itens'
+          OnClick = btnInserirItemClick
+        end
+        object btnEditarItem: TSpeedButton
+          Left = 80
+          Height = 22
+          Top = 2
+          Width = 75
+          Caption = 'Editar Itens'
+          OnClick = btnEditarItemClick
+        end
+        object btnExcluir: TSpeedButton
+          Left = 752
+          Height = 22
+          Top = 2
+          Width = 75
+          Caption = 'Excluir'
+          OnClick = btnExcluirClick
+        end
+      end
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 187
+        Top = 50
+        Width = 834
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'Chave'
+            Width = 45
+            FieldName = 'CHAVE'
+          end        
+          item
+            Title.Caption = 'Descrição do Produto'
+            Width = 350
+            FieldName = 'DESCRICAO'
+          end        
+          item
+            Title.Caption = 'Chave Venda'
+            Width = 75
+            FieldName = 'CHAVE_VENDA'
+          end        
+          item
+            Title.Caption = 'Chave Produto'
+            Width = 100
+            FieldName = 'CHAVE_PRODUTO'
+          end        
+          item
+            Title.Caption = 'Preço Unitário'
+            Width = 90
+            FieldName = 'PRECO_UNITARIO'
+          end        
+          item
+            Title.Caption = 'Quantidade'
+            Width = 70
+            FieldName = 'QUANTIDADE'
+          end        
+          item
+            Title.Caption = 'Valor Total'
+            FieldName = 'VALOR_TOTAL'
+          end>
+        DataSource = DataModule1.dsItensVendas
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        TabOrder = 1
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Faturamento'
+      ClientHeight = 237
+      ClientWidth = 834
+      object Panel5: TPanel
+        Left = 0
+        Height = 50
+        Top = 0
+        Width = 834
+        Align = alTop
+        ClientHeight = 50
+        ClientWidth = 834
+        TabOrder = 0
+        object edtPagoEntrada: TDBEdit
+          Left = 0
+          Height = 23
+          Top = 16
+          Width = 128
+          DataField = 'VALOR_PAGO_ENTRADA'
+          DataSource = DataModule1.dsVendas
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object lblPagoEntrada: TLabel
+          Left = 0
+          Height = 15
+          Top = 0
+          Width = 115
+          Caption = 'Valor Pago da Entrada'
+        end
+        object edtQTDParcelas: TDBEdit
+          Left = 135
+          Height = 23
+          Top = 16
+          Width = 129
+          DataField = 'QUANTIDADE_PARCELAS'
+          DataSource = DataModule1.dsVendas
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object lblQTDParcelas: TLabel
+          Left = 136
+          Height = 15
+          Top = 0
+          Width = 124
+          Caption = 'Quantidade de Parcelas'
+        end
+        object lblVencimento: TLabel
+          Left = 271
+          Height = 15
+          Top = 0
+          Width = 100
+          Caption = 'Dia do Vencimento'
+        end
+        object edtVencimento: TDBComboBox
+          Left = 271
+          Height = 23
+          Top = 16
+          Width = 105
+          DataField = 'DIA_DO_MES_PRA_VENCER'
+          DataSource = DataModule1.dsVendas
+          ItemHeight = 15
+          Items.Strings = (
+            '1'
+            '2'
+            '3'
+            '4'
+            '5'
+            '6'
+            '7'
+            '8'
+            '9'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            '17'
+            '18'
+            '19'
+            '20'
+            '21'
+            '22'
+            '23'
+            '24'
+            '25'
+            '26'
+            '27'
+            '28'
+          )
+          MaxLength = 0
+          Style = csDropDownList
+          TabOrder = 2
+        end
+        object btnGerarParcelas: TSpeedButton
+          Left = 382
+          Height = 23
+          Top = 16
+          Width = 90
+          Caption = 'Gerar Parcelas'
+          OnClick = btnGerarParcelasClick
+        end
+      end
+      object DBGrid2: TDBGrid
+        Left = 0
+        Height = 187
+        Top = 50
+        Width = 834
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'Valor'
+            Width = 100
+            FieldName = 'VALOR'
+          end        
+          item
+            Title.Caption = 'Data de Vencimento'
+            Width = 125
+            FieldName = 'DATA_VENCIMENTO'
+          end        
+          item
+            Title.Caption = 'Data de Pagamento'
+            Width = 125
+            FieldName = 'DATA_PAGAMEMTO'
+          end        
+          item
+            Title.Caption = 'Status'
+            Width = 100
+            FieldName = 'STATUS'
+          end>
+        DataSource = DataModule1.dsContasReceber
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        TabOrder = 1
+      end
+    end
+  end
+  object edtHorario: TDBEdit
+    Left = 274
+    Height = 23
+    Top = 24
+    Width = 100
+    DataField = 'HORARIO'
+    DataSource = DataModule1.dsVendas
+    MaxLength = 0
+    TabOrder = 2
+  end
+  object lblData: TLabel
+    Left = 167
+    Height = 15
+    Top = 8
+    Width = 24
+    Caption = 'Data'
+  end
+  object edtCliente: TDBEdit
+    Left = 381
+    Height = 23
+    Top = 24
+    Width = 43
+    DataField = 'CLIENTE'
+    DataSource = DataModule1.dsVendas
+    MaxLength = 0
+    TabOrder = 3
+  end
+  object edtValorTotal: TDBEdit
+    Left = 711
+    Height = 23
+    Top = 24
+    Width = 75
+    DataField = 'VALOR_TOTAL'
+    DataSource = DataModule1.dsVendas
+    MaxLength = 0
+    TabOrder = 5
+  end
+  object qryVendasChaveCReceber: TZQuery
+    Connection = DataModule1.ZConnection1
+    SQL.Strings = (
+      'select max(chave) + 1'
+      '  from conta_a_receber'
+    )
+    Params = <>
+    Left = 64
+    Top = 232
+    object qryVendasChaveCReceberADD: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ADD'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+  end
+  object qryVendasChave: TZQuery
+    Connection = DataModule1.ZConnection1
+    SQL.Strings = (
+      'select max(chave) + 1'
+      '  from item_vendas'
+    )
+    Params = <>
+    Left = 45
+    Top = 176
+    object qryVendasChaveADD: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ADD'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+  end
+  object qrySomaItens: TZQuery
+    Connection = DataModule1.ZConnection1
+    SQL.Strings = (
+      'select sum(valor_total) '
+      '  from item_vendas'
+      'where item_vendas.chave_venda = :chavevenda'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'chavevenda'
+        ParamType = ptInput
+      end>
+    Left = 174
+    Top = 183
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'chavevenda'
+        ParamType = ptInput
+      end>
+    object qrySomaItensSUM: TFloatField
+      FieldKind = fkData
+      FieldName = 'SUM'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Precision = 2
+    end
+  end
+end

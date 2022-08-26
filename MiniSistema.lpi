@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <PathDelim Value="\"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="MiniSistema"/>
+      <Scaled Value="True"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <XPManifest>
+        <DpiAware Value="True"/>
+      </XPManifest>
+      <Icon Value="0"/>
+    </General>
+    <BuildModes>
+      <Item Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+    </RunParams>
+    <RequiredPackages>
+      <Item>
+        <PackageName Value="frce"/>
+      </Item>
+      <Item>
+        <PackageName Value="DateTimeCtrls"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="zcomponent"/>
+      </Item>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+    </RequiredPackages>
+    <Units>
+      <Unit>
+        <Filename Value="MiniSistema.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="umenu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fMenu"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMenu"/>
+      </Unit>
+      <Unit>
+        <Filename Value="udatamobile.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DataModule1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uDataMobile"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucadastroclientes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fCadastroClientes"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uCadastroClientes"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uedicaocliente.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fEdicaoCliente"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uEdicaoCliente"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucadastroprodutos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fCadastroProdutos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uCadastroProdutos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uedicaoprodutos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fEdicaoProdutos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uEdicaoProdutos"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ulancamentovendas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fLancamentoVendas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLancamentoVendas"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uedicaoitensvenda.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fEdicaoItensVenda"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uEdicaoItensVenda"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uconsultasvendas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fConsultasVendas"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uConsultasVendas"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucontasareceber.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fContasAReceber"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uContasAReceber"/>
+      </Unit>
+      <Unit>
+        <Filename Value="urelatoriocontasareceber.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fRelatorioContasAReceber"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uRelatorioContasAReceber"/>
+      </Unit>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="MiniSistema"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Debugging>
+        <GenerateDebugInfo Value="False"/>
+        <DebugInfoType Value="dsDwarf2Set"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions>
+      <Item>
+        <Name Value="EAbort"/>
+      </Item>
+      <Item>
+        <Name Value="ECodetoolError"/>
+      </Item>
+      <Item>
+        <Name Value="EFOpenError"/>
+      </Item>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
